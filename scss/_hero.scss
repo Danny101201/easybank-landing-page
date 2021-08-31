@@ -1,0 +1,100 @@
+.hero{
+    position: relative;
+    background-color: $veryLightGray;
+
+    > .container{
+        @include  breakpoint-up(large){
+            display: flex;
+            align-items: center;
+        }
+    }
+    &_img{
+        // border: 1px solid magenta;
+        background-image: url('../images/bg-intro-mobile.svg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        min-height: 17.5rem;
+        position: relative;
+
+        @include breakpoint-down(medium){
+            min-height: 25rem;
+            background-position: center 70%;
+
+        }
+        @include  breakpoint-up(large){
+            flex: 3;
+            order:2;
+            height: 41rem;
+            background-image: none;
+            // background-image: url('../images/bg-intro-desktop.svg');
+            // background-position: left bottom;
+        }
+        &:before,
+        &:after{
+            
+        }
+        &:before{
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            display: block;
+            background-image: url('../images/bg-intro-desktop.svg');
+            background-size: 90%;
+            background-repeat: no-repeat;
+            background-position: center bottom;
+           
+            @include breakpoint-up(large){
+                width: 150%;
+                background-size: 112%;
+                background-position: 0% 83%;
+                
+            }
+        }
+        &:after{
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            display: block;
+            background-image: url('../images/image-mockups.png');
+            background-size: 90%;
+            background-repeat: no-repeat;
+            background-position: center bottom;
+          
+            @include breakpoint-up(large){
+                left: 30%;
+                width: 120%;
+                height: 122%;
+                background-position: center -15vh;
+            }
+            
+        }
+        
+    }
+   
+    &_text{
+        text-align: center;
+        @include  breakpoint-up(large){
+            flex: 2;
+            order:1;
+            text-align: left;
+        }
+        h1{
+            font-weight: 300;
+            color: $darkBlue;
+            line-height: 1;
+            font-size: 2.31rem;
+            margin-bottom: 1.5rem;
+
+            @include breakpoint-up(large){
+                font-size:$font-xl;
+            }
+        }
+        p{
+            line-height: 1.5;
+            margin-bottom: 2.25rem;
+        }
+    }
+}
